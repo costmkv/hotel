@@ -1,0 +1,90 @@
+{
+  "name": "hotel",
+  "version": "1.0.0",
+  "description": "Hotel",
+  "author": "Constantine Makeev",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "debug": "NODE_CONFIG_ENV=debug nodemon server.ts",
+    "test": "jest --verbose --runInBand --passWithNoTests",
+    "build": "./node_modules/.bin/tsc --project ./tsconfig.build.json",
+    "lint": "eslint -c .eslintrc.js \"{src,sdk,apps,libs,test}/**/*.ts\""
+  },
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      ".git",
+      "node_modules/**/node_modules"
+    ],
+    "verbose": true,
+    "execMap": {
+      "ts": "node --require ts-node/register"
+    },
+    "watch": [
+      "."
+    ],
+    "env": {
+      "NODE_ENV": "development"
+    },
+    "ext": "js,json,ts,proto"
+  },
+  "jest": {
+    "modulePathIgnorePatterns": [
+      "dist"
+    ],
+    "transform": {
+      "^.+\\.(t|j)sx?$": "ts-jest"
+    },
+    "testRegex": "(/__tests__/.*|(\\.|/)(test|tests|spec))\\.(jsx?|tsx?)$",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json"
+    ],
+    "reporters": [
+      "default"
+    ]
+  },
+  "dependencies": {
+    "@nestjs/common": "8.4.7",
+    "@nestjs/config": "3.1.1",
+    "@nestjs/core": "8.4.7",
+    "@nestjs/microservices": "8.4.7",
+    "@nestjs/platform-express": "8.4.7",
+    "class-transformer": "0.5.1",
+    "class-validator": "0.13.1",
+    "config": "3.3.7",
+    "express": "4.17.1",
+    "joi": "^17.11.0",
+    "lodash": "4.17.21",
+    "ts-morph": "13.0.3",
+    "type-fest": "^4.6.0",
+    "uuid": "^9.0.1",
+    "zod": "3.22.4"
+  },
+  "devDependencies": {
+    "@types/config": "0.0.39",
+    "@types/express": "4.17.13",
+    "@types/lodash": "4.14.201",
+    "@types/node": "16.4.7",
+    "@types/uuid": "^9.0.7",
+    "eslint": "8.53.0",
+    "eslint-config-airbnb-typescript": "17.1.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-simple-import-sort": "^10.0.0",
+    "nodemon": "2.0.9",
+    "prettier": "^3.0.3",
+    "ts-jest": "28.0.8",
+    "ts-node": "10.8.1",
+    "typescript": "4.7.4"
+  }
+}
